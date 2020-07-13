@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* regole header generali */
+
+.header-flex-wrap {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 45px;
+  background-color: lightgrey;
+}
+
+.header-left-wrap {
+  display: flex;
+  width: 30vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right-wrap {
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* lato sx header regole */
+
+#profile-img {
+  background-color: white;
+  background-image: url(img/avatar.png);
+  background-size: contain;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.profile-icons {
+  color: darkgrey;
+}
+
+.profile-icons i {
+  padding-right: 15px;
+  cursor: pointer;
+}
+
+/* lato dx header regole */
+
+.chatting-with {
+  background-color: white;
+  background-image: url(img/avatar.png);
+  background-size: contain;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
