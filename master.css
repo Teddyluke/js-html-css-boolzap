@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+.title {
+  font-weight: bold;
+}
 
-
+.subtitle {
+  color: grey;
+}
 /* regole header generali */
 
 .header-flex-wrap {
   display: flex;
-  position: fixed;
   width: 100vw;
   height: 45px;
   background-color: lightgrey;
@@ -61,4 +65,105 @@
   width: 40px;
   height: 40px;
   margin-left: 10px;
+}
+
+
+/* regole main */
+.main-flex-wrap {
+  display: flex;
+  height: calc(100vh - 45px);
+  width: 100vw;
+}
+
+.lista-contatti {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.sezione-notifiche {
+  height: 45px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.ringbell {
+  background-color: #f4fcff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ringbell i {
+font-size: 1.2em;
+color: lightblue;
+}
+
+.searchBar {
+  display: flex;
+  position: relative;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4fcff;
+}
+.searchBar i {
+  position: absolute;
+  left: 23px;
+  color: lightgrey;
+}
+.searchBar input {
+  height: 22px;
+  width: 95%;
+  border: 1px solid #f9f9f9;
+}
+/*  sezione contatti  */
+
+
+.box-contatto {
+  height: 45px;
+  display: flex;
+  border-top: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.img-profilo {
+  background-color: #f4fcff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* chatbox */
+
+#chatbox {
+  display: flex;
+  background-image: url(img/sfondo.jpg);
+  width: 70vw;
+  height: calc(100vh - 45px);
+  flex-direction: column;
+}
+
+.chat {
+  height: calc(100vh - 45px);
+  width: 100%;
+}
+
+.writebar {
+  height: 45px;
+  width: 100%;
+  background-color: lightgrey;
 }
