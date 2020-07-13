@@ -6,6 +6,7 @@
     <title>boolzap</title>
     <link rel="stylesheet" href="./master.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- header  -->
@@ -162,19 +163,26 @@
         <!-- sezione con chat -->
         <div id="chat-screen">
           <div class="chat">
-            <div class="template-messaggio-utente">
+            <div class="box-messaggio-utente">
               <div class="messaggio-utente ">
                 <p>Ciao, come stai?</p>
               </div>
             </div>
-            <div class="template-messaggio-interlocutore">
+            <div class="box-messaggio-interlocutore">
               <div class="messaggio-interlocutore ">
                 <p>Ciao, come stai?</p>
               </div>
             </div>
-            <div class="template-messaggio-utente">
+            <div class="box-messaggio-utente">
               <div class="messaggio-utente ">
                 <p>Ciao, come stai?</p>
+              </div>
+            </div>
+            <div class="template">
+              <div class="box-messaggio-utente ">
+                <div class="messaggio-utente ">
+                  <p>Ciao, come stai?</p>
+                </div>
               </div>
             </div>
           </div>
@@ -183,14 +191,18 @@
               <i class="far fa-smile"></i>
             </div>
             <div class="chatbox">
-              <input type="text" name="" value="" placeholder="     Scrivi un messaggio">
+              <input id="chat-utente" type="text" name="" value="" placeholder="     Scrivi un messaggio">
             </div>
             <div class="messaggio-vocale">
+              <i class="fas fa-paper-plane"></i>
               <i class="fas fa-microphone"></i>
             </div>
           </div>
         </div>
       </div>
     </main>
+    <script type="text/javascript" src="script.js">
+
+    </script>
   </body>
 </html>

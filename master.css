@@ -11,6 +11,10 @@
 .subtitle {
   color: grey;
 }
+
+.template {
+  display: none;
+}
 /* regole header generali */
 
 .header-flex-wrap {
@@ -166,7 +170,7 @@ color: lightblue;
 }
 
 
-.template-messaggio-utente{
+.box-messaggio-utente{
   text-align: right;
 }
 
