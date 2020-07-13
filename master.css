@@ -124,7 +124,9 @@ color: lightblue;
   border: 1px solid #f9f9f9;
 }
 /*  sezione contatti  */
-
+.sezione-contatti {
+  overflow: auto;
+}
 
 .box-contatto {
   height: 45px;
@@ -149,21 +151,67 @@ color: lightblue;
 
 /* chatbox */
 
-#chatbox {
+#chat-screen {
   display: flex;
   background-image: url(img/sfondo.jpg);
   width: 70vw;
   height: calc(100vh - 45px);
   flex-direction: column;
 }
-
+/* regole chat */
 .chat {
   height: calc(100vh - 45px);
   width: 100%;
+  overflow: auto;
 }
 
+
+.template-messaggio-utente{
+  text-align: right;
+}
+
+.messaggio-utente {
+  background-color: lightgreen;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px 30px;
+  border-radius: 10px;
+}
+
+.template-messaggio-interlocutore {
+  text-align: left;
+}
+
+.messaggio-interlocutore {
+  background-color: white;
+  display: inline-block;
+  padding: 10px;
+  margin: 10px 30px;
+  border-radius: 10px;
+}
+
+/*  regole writebar */
 .writebar {
-  height: 45px;
+  height: 55px;
   width: 100%;
-  background-color: lightgrey;
+  background-color: #e7e8e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.writebar i {
+  color: grey;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.chatbox {
+  width: 75%;
+}
+.chatbox input {
+  width: 100%;
+  height: 35px;
+  border-radius: 10px;
+  border: none;
 }
