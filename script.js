@@ -33,14 +33,20 @@ function sendKeyup(event) {
 }
 
 function searchContactName(txt) {
+  var container = $(".box-contatto");
   var target = $(".box-contatto .title");
-  for (var i = 0; i < target.length; i++) {
-    if (target[i] == txt) {
-      target.css("display", "show")
-    } else {
-      target.css("display", "none")
+  $(target).each(function () {
+    var appoggio = $(this);
+    for (var i = 0; i < appoggio.length; i++) {
+      console.log(appoggio[i]);
+
+      if (appoggio[i] == txt) {
+        console.log("ok");
+      } else {
+        console.log("nop");
+      }
     }
-  }
+  })
 }
 });
 
