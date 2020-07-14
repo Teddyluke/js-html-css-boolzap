@@ -18,8 +18,9 @@ function rispostaAutomaticaSms() {
   var messaggioInterlocutore = $(".template .box-messaggio-interlocutore").clone();
   $(".chat").append(messaggioInterlocutore);
 }
+
 addSearchListener();
-searchContactName();
+
 function addSearchListener() {
   var target = $("#searchbar");
   target.keyup(sendKeyup);
@@ -33,8 +34,12 @@ function sendKeyup(event) {
 
 function searchContactName(txt) {
   var target = $(".box-contatto .title");
-  if (target == txt) {
-    console.log(true);
+  for (var i = 0; i < target.length; i++) {
+    if (target[i] == txt) {
+      target.css("display", "show")
+    } else {
+      target.css("display", "none")
+    }
   }
 }
 });
