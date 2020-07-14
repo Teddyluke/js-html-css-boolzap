@@ -35,18 +35,15 @@ function sendKeyup(event) {
 function searchContactName(txt) {
   var container = $(".box-contatto");
   var target = $(".box-contatto .title");
-  $(target).each(function () {
-    var appoggio = $(this);
-    for (var i = 0; i < appoggio.length; i++) {
-      console.log(appoggio[i]);
-
-      if (appoggio[i] == txt) {
-        console.log("ok");
-      } else {
-        console.log("nop");
-      }
+  console.log(container);
+  console.log(target);
+  for (var i = 0; i < container.length; i++) {
+    if ($(container[i]).find(".title").html().includes(txt) == false)  {
+      $(container[i]).hide();
+    } else {
+      $(container[i]).show();
     }
-  })
+  }
 }
 });
 
