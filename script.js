@@ -3,7 +3,7 @@ $(document).ready(function () {
 var target = $("#chat-utente");
 target.keyup(function () {
   var input = $(this);
-  var txt = $(".template .messaggio-utente p").text(input.val());
+  var txt = $(".template .messaggio-utente .testo-utente").text(input.val());
 })
 
 $(".fa-paper-plane").click(function () {
@@ -34,9 +34,7 @@ function sendKeyup(event) {
 
 function searchContactName(txt) {
   var container = $(".box-contatto");
-  var target = $(".box-contatto .title");
   console.log(container);
-  console.log(target);
   for (var i = 0; i < container.length; i++) {
     if ($(container[i]).find(".title").html().includes(txt) == false)  {
       $(container[i]).hide();
@@ -45,6 +43,13 @@ function searchContactName(txt) {
     }
   }
 }
+
+// time function
+function getActualTime() {
+  var date = new Date();
+  return date.getHours() + ":" + date.getMinutes();
+}
+
 });
 
 //  codice visto in classe con Giovanni
@@ -73,9 +78,3 @@ function searchContactName(txt) {
 //    template.find(#message-time).text(getActualTime());
 //   target.append(template);
 // }
-
-
-  // function getActualTime() {
-  //   var date = new Date();
-  //   return date.getHours() + ":" + date.getMinutes();
-  // }
