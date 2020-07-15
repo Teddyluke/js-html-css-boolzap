@@ -8,7 +8,7 @@ target.keyup(function () {
 
 $(".fa-paper-plane").click(function () {
   var messaggioUtente = $(".template .box-messaggio-utente").clone();
-  $(".chat").append(messaggioUtente);
+  $(".chat-active").append(messaggioUtente);
   $("#chat-utente").val("");
   setTimeout(rispostaAutomaticaSms, 1000);
 });
@@ -16,7 +16,7 @@ $(".fa-paper-plane").click(function () {
 function rispostaAutomaticaSms() {
   var txt = $(".template .messaggio-interlocutore p").text("ok");
   var messaggioInterlocutore = $(".template .box-messaggio-interlocutore").clone();
-  $(".chat").append(messaggioInterlocutore);
+  $(".chat-active").append(messaggioInterlocutore);
 }
 
 addSearchListener();
@@ -80,7 +80,8 @@ var chats = $(".chat")
 contacts.click(function () {
   $(".chat").hide();
   var id = $(this).data("id");
-  $('.chat[data-id="'+ id +'"]').show();
+  $(".chat").removeClass("chat-active");
+  $('.chat[data-id="'+ id +'"]').show().addClass("chat-active");
 })
 }
 
