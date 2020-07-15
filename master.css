@@ -185,6 +185,18 @@ color: lightblue;
   position: relative;
 }
 
+.messaggio-utente .fa-chevron-down {
+  display: none;
+  padding-left: 10px;
+}
+.messaggio-utente p {
+  display: inline-block;
+}
+
+.messaggio-utente:hover .fa-chevron-down {
+display: inline-block;
+}
+
 .ora-utente {
   position: absolute;
   bottom: 0;
@@ -203,6 +215,27 @@ color: lightblue;
   padding: 10px;
   margin: 10px 30px;
   border-radius: 10px;
+}
+
+/* regole dropdown */
+.chat-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  border:1px solid pink;
+  text-decoration: none;
+  padding: 10px;
+  bottom: -50px;
+  right: 0px;
+}
+.chat-dropdown ul {
+  list-style: none;
+  text-align: left;
+}
+.chat-dropdown a {
+  text-decoration: none;
+  color: grey;
 }
 
 /*  regole writebar */
