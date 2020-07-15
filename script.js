@@ -47,6 +47,8 @@ function searchContactName(txt) {
 // associazione lista contatti a chat
 selectContact();
 giveDataIdToContact();
+// giveDataIdToChat();
+// summonChat();
 
 function selectContact() {
   var target = $(".box-contatto")
@@ -60,9 +62,29 @@ function selectContact() {
 function giveDataIdToContact() {
   var target = $(".sezione-contatti .box-contatto");
   target.each(function () {
-    var i = 0;
     $(this).attr("data-id", ($(this).index()));
   })
+}
+
+function giveDataIdToChat() {
+var target = $(".chat");
+var target2 = $(".sezione-contatti .box-contatto");
+target2.each(function () {
+  target.clone().appendTo(target).attr("data-id",($(this).index())).hide();
+})
+}
+
+function summonChat() {
+var contacts = $(".sezione-contatti .box-contatto");
+var contact = $(this);
+var chats = $(".chat")
+contacts.click(function () {
+  if (contact.data("id") == chats.data("id")) {
+    console.log("true", chats);
+  } else {
+    console.log("false");
+  }
+})
 }
 
 // time function
