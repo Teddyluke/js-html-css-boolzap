@@ -60,7 +60,8 @@ function selectContact() {
 function giveDataIdToContact() {
   var target = $(".sezione-contatti .box-contatto");
   target.each(function () {
-    $(this).attr("href");
+    var i = 0;
+    $(this).attr("data-id", ($(this).index()));
   })
 }
 
