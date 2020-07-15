@@ -36,12 +36,32 @@ function searchContactName(txt) {
   var container = $(".box-contatto");
   console.log(container);
   for (var i = 0; i < container.length; i++) {
-    if ($(container[i]).find(".title").html().includes(txt) == false)  {
+    if ($(container[i]).find(".title").html().toLowerCase().includes(txt) == false)  {
       $(container[i]).hide();
     } else {
       $(container[i]).show();
     }
   }
+}
+
+// associazione lista contatti a chat
+selectContact();
+giveDataIdToContact();
+
+function selectContact() {
+  var target = $(".box-contatto")
+  target.click(function () {
+    var contact = $(this).clone();
+    $(".wrap-contatto-attivo .box-contatto").remove();
+    $(".wrap-contatto-attivo").append(contact);
+  })
+}
+
+function giveDataIdToContact() {
+  var target = $(".sezione-contatti .box-contatto");
+  target.each(function () {
+    $(this).attr("href");
+  })
 }
 
 // time function
@@ -52,29 +72,6 @@ function getActualTime() {
 
 });
 
-//  codice visto in classe con Giovanni
+// FLUSSO DI PENSIERO X MILESTONE 3
 
-// function addSendListener() {
-// var target = $("new-meessage-input"),
-// target.keyup(sendKeyup);
-// }
-
-// function sendKeyup(event) {
-  // var key = event.which;
-  // acquisisco il valore scritto nella stringa al press di invio(tasto 13)
-  // if (key === 13) {
-  //    var input = $(this);
-  //    var txt = input.val();
-  //    // resetto l'input
-  //    input.val("");
-    // sendMessage(txt);
-  // }
-// }
-
-// function sendMessage(txt) {
-//   var template = $(".template .box-messaggio-utente"").clone();
-//   var target = $("messaggio");
-//   template.find("#message-text").text(txt);
-//    template.find(#message-time).text(getActualTime());
-//   target.append(template);
-// }
+// click su contatto. va aggiunto un data-id ad ogni contatto e alla conversazione ad esso associata. dopo di che al click sul contatto dovrà apparire la conversazione corrispondente.
