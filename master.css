@@ -185,15 +185,15 @@ color: lightblue;
   position: relative;
 }
 
-.messaggio-utente .fa-chevron-down {
+.messaggio-utente .fa-chevron-down, .messaggio-interlocutore .fa-chevron-down {
   display: none;
   padding-left: 10px;
 }
-.messaggio-utente p {
+.messaggio-utente p, .messaggio-interlocutore p {
   display: inline-block;
 }
 
-.messaggio-utente:hover .fa-chevron-down {
+.messaggio-utente:hover .fa-chevron-down, .messaggio-interlocutore:hover .fa-chevron-down {
 display: inline-block;
 }
 
@@ -215,6 +215,7 @@ display: inline-block;
   padding: 10px;
   margin: 10px 30px;
   border-radius: 10px;
+  position: relative;
 }
 
 /* regole dropdown */
@@ -228,6 +229,8 @@ display: inline-block;
   padding: 10px;
   bottom: -50px;
   right: 0px;
+  z-index: 2;
+
 }
 .chat-dropdown ul {
   list-style: none;

@@ -6,7 +6,6 @@ target.keyup(function () {
   var txt = $(".template .messaggio-utente .testo-utente").text(input.val());
 })
 
-// criticità se le chat si moltiplicano
 $(".fa-paper-plane").click(function () {
   var messaggioUtente = $(".template .box-messaggio-utente").clone();
   $(".chat").append(messaggioUtente);
@@ -49,7 +48,7 @@ function searchContactName(txt) {
 selectContact();
 giveDataIdToContact();
 giveDataIdToChat();
-// summonChat();
+summonChat();
 
 function selectContact() {
   var target = $(".box-contatto")
@@ -71,16 +70,17 @@ function giveDataIdToChat() {
 var target = $(".chat");
 var target2 = $(".sezione-contatti .box-contatto");
 target2.each(function () {
-  target.clone().appendTo(target).attr("data-id",($(this).index())).hide();
+  target.clone().prependTo("#chat-screen").attr("data-id",($(this).index())).hide();
 })
 }
 
 function summonChat() {
 var contacts = $(".sezione-contatti .box-contatto");
-var contact = $(this);
 var chats = $(".chat")
-contact.click(function () {
-chats.attr("data-id",(contact.index())).show();
+contacts.click(function () {
+  $(".chat").hide();
+  var id = $(this).data("id");
+  $('.chat[data-id="'+ id +'"]').show();
 })
 }
 
@@ -88,6 +88,7 @@ chats.attr("data-id",(contact.index())).show();
 
 dropdownMenuTendina();
 deleteMessage();
+
 function dropdownMenuTendina() {
 var target = $(".fa-chevron-down");
 target.click(function () {
@@ -98,7 +99,7 @@ target.click(function () {
 function deleteMessage() {
   var target = $(".delete-message")
   target.click(function () {
-    $(this).find(".messaggio-utente").remove();
+    $(this).parents(".box-messaggio").remove();
   })
 }
 
