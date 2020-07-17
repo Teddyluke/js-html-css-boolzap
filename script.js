@@ -1,40 +1,46 @@
 $(document).ready(function () {
-
+// recuper il valore dei tasti premuti e li inserisce nel messaggio utente.
 var target = $("#chat-utente");
 target.keyup(function () {
   var input = $(this);
   var txt = $(".template .messaggio-utente .testo-utente").text(input.val());
 })
 
+// clona il box messaggio, appende il messaggio,  resetta l'input della chat aggiunge l'ora e fa partire la risposta automatica.
 $(".fa-paper-plane").click(function () {
   var messaggioUtente = $(".template .box-messaggio-utente").clone();
   $(".chat-active").append(messaggioUtente);
   $("#chat-utente").val("");
+  $(".ora-utente").text("");
+  $(".ora-utente").append(getActualTime);
+  $(".ora-interlocutore").text("");
+  $(".ora-interlocutore").append(getActualTime);
   setTimeout(rispostaAutomaticaSms, 1000);
 });
 
 function rispostaAutomaticaSms() {
-  var txt = $(".template .messaggio-interlocutore p").text("ok");
+  var txt = $(".template .messaggio-interlocutore .testo-interlocutore").text("ok");
   var messaggioInterlocutore = $(".template .box-messaggio-interlocutore").clone();
   $(".chat-active").append(messaggioInterlocutore);
 }
 
+// funzioni per la ricerca contatti
 addSearchListener();
 
+// prende nota del keyup e lo rimanda a sendkeyup
 function addSearchListener() {
   var target = $("#searchbar");
-  target.keyup(sendKeyup);
+  target.keyup(sendKeyup)
 }
-
+// riporta il valore nella funzione seguente
 function sendKeyup(event) {
   var input = $(this);
   var txt = input.val();
   searchContactName(txt);
 }
-
+// ricerca i contatti tramite un ciclo for che esclude i nomi che non presentano le lettere selezionate nel nome.
 function searchContactName(txt) {
   var container = $(".box-contatto");
-  console.log(container);
   for (var i = 0; i < container.length; i++) {
     if ($(container[i]).find(".title").html().toLowerCase().includes(txt) == false)  {
       $(container[i]).hide();
@@ -50,6 +56,7 @@ giveDataIdToContact();
 giveDataIdToChat();
 summonChat();
 
+// appende il contatto attivo nella parte alta dell header
 function selectContact() {
   var target = $(".box-contatto")
   target.click(function () {
@@ -59,6 +66,7 @@ function selectContact() {
   })
 }
 
+// genera un data id per tutti i contatti
 function giveDataIdToContact() {
   var target = $(".sezione-contatti .box-contatto");
   target.each(function () {
@@ -66,14 +74,16 @@ function giveDataIdToContact() {
   })
 }
 
+// crea una chat per ogni contatto e gli associa un data id
 function giveDataIdToChat() {
-var target = $(".chat");
-var target2 = $(".sezione-contatti .box-contatto");
-target2.each(function () {
-  target.clone().prependTo("#chat-screen").attr("data-id",($(this).index())).hide();
+var chat = $(".chat");
+var contatti = $(".sezione-contatti .box-contatto");
+contatti.each(function () {
+  chat.clone().prependTo("#chat-screen").attr("data-id",($(this).index())).hide();
 })
 }
 
+// al click nascondi tutte le chat e mostra la chat con il medesimo id del contatto.
 function summonChat() {
 var contacts = $(".sezione-contatti .box-contatto");
 var chats = $(".chat")
@@ -87,16 +97,22 @@ contacts.click(function () {
 
 //  chat dropdown
 
-dropdownMenuTendina();
-deleteMessage();
+// per far partire le funzioni anche sui nuovi elementi del dom
+$(document).on("mouseenter", ".box-messaggio", function () {
+  dropdownMenuTendina();
+  deleteMessage();
+});
 
+
+// apre il menù a tendina sul click della freccina
 function dropdownMenuTendina() {
 var target = $(".fa-chevron-down");
 target.click(function () {
-  $(this).next().toggle();
+  $(this).siblings(".chat-dropdown").toggle();
+  console.log("ok");
 })
 }
-
+// al click su delete, rimuove il box messaggio
 function deleteMessage() {
   var target = $(".delete-message")
   target.click(function () {
@@ -111,7 +127,3 @@ function getActualTime() {
 }
 
 });
-
-// FLUSSO DI PENSIERO X MILESTONE 3
-
-// click su contatto. va aggiunto un data-id ad ogni contatto e alla conversazione ad esso associata. dopo di che al click sul contatto dovrà apparire la conversazione corrispondente.

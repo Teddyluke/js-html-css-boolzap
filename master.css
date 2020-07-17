@@ -117,16 +117,20 @@ color: lightblue;
   align-items: center;
   background-color: #f4fcff;
 }
+
 .searchBar i {
   position: absolute;
-  left: 23px;
+  left: 17px;
   color: lightgrey;
 }
+
 .searchBar input {
   height: 22px;
-  width: 95%;
+  width: 85%;
   border: 1px solid #f9f9f9;
 }
+
+
 /*  sezione contatti  */
 .sezione-contatti {
   overflow: auto;
@@ -140,6 +144,9 @@ color: lightblue;
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+}
+.box-contatto:hover {
+  background-color: lightgrey;
 }
 
 .img-profilo img {
@@ -197,10 +204,10 @@ color: lightblue;
 display: inline-block;
 }
 
-.ora-utente {
+.ora-utente, .ora-interlocutore {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 4px;
   font-size: 10px;
   color: grey;
 }
